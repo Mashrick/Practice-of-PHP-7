@@ -17,7 +17,7 @@
 
 							</div>		
 
-							<form action="index.php" method="POST">
+							<form action="" method="POST">
 								
 								<div >
 
@@ -50,7 +50,7 @@
 
 									<label for="address">Address</label>
 									
-									<input type="email" id="address" name="address" class="form-control" placeholder="98/6, South Bashaboo, Dhaka-1214" autocomplete="off" required>
+									<input type="text" id="address" name="address" class="form-control" placeholder="98/6, South Bashaboo, Dhaka-1214" autocomplete="off" required>
 
 									<br>
 								
@@ -62,12 +62,43 @@
 
 								<div class="form-group login_btn">
 									
-									<button type="submit" class="btn btn-primary btn-lg" name="loginBtn">Submit</button>
+									<button type="submit" class="btn btn-primary btn-lg" name="stdAddBtn">Submit</button>
 								
 								</div>
 
 
 							</form>
+
+
+							<?php 
+
+								if (isset($_POST['stdAddBtn'])) {
+									
+									$fullName		=	$_POST['fullName'];
+									$phone			=	$_POST['phone'];
+									$emailAddress	=	$_POST['emailAddress'];
+									$address		=	$_POST['address'];
+									
+
+									$sql			=	"INSERT INTO studentdata(fullName, phone, emailAddress, address, joinDate) VALUES('$fullName', '$phone', '$emailAddress', '$address', now() )";
+
+
+									$addStudent 	= mysqli_query($db, $sql);
+
+
+									if ($addStudent) {
+
+										header("Location: index.php");
+										
+									} else {
+
+										die("MySQL Error. " . mysqli_error($db) );
+
+									}
+								
+								}
+
+							?>
 
 				
 			</div>
