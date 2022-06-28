@@ -14,6 +14,7 @@
 							  <th scope="col">Name</th>
 							  <th scope="col">Phone</th>
 							  <th scope="col">Email</th>
+							  <th scope="col">Address</th>
 							  <th scope="col">Join Date</th>
 							</tr>
 
@@ -28,23 +29,42 @@
 					  		$numofData	=	mysqli_num_rows($allData);
 
 					  		if ($numofData <= 0) {
-					  			echo '<div class="alert alert-info"><h3>There is no data</h3></div>';
-					  		}
 
+					  			echo '<div class="alert alert-info"><h3>There is no data</h3></div>';
+
+					  		} else {
+
+					  			while ($row = mysqli_fetch_assoc($allData) ) {
+
+					  				$id 			=	$row['id'];
+					  				$fullName 		=	$row['fullName'];
+					  				$phone 			=	$row['phone'];
+					  				$emailAddress 	=	$row['emailAddress'];
+					  				$address 		=	$row['address'];
+					  				$joinDate 		=	$row['joinDate'];
+					  				
 
 					  	?>
 
+					  		<tr>
+						      <th><?php 	echo $id 			?></th>						    
+						      <td><?php 	echo $fullName 		?></td>
+						      <td><?php 	echo $phone 		?></td>
+						      <td><?php 	echo $emailAddress	?></td>
+						      <td><?php 	echo $address 		?></td>
+						      <td><?php 	echo $joinDate 		?></td>
+					   		</tr>
 
-					  		
+					  	<?php				
+
+					  										
+					  			}
+
+					  		}
+
+					  	?>					  	
 
 
-					    <tr>
-					      <th scope="row">1</th>
-					      <td>Mark</td>
-					      <td>019</td>
-					      <td>@mdo</td>
-					      <td>20-06-2019</td>
-					    </tr>
 					    
 					  </tbody>
 					</table>
