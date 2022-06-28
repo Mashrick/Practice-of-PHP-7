@@ -10,11 +10,11 @@
 
 	if ($db) {
 
-		//echo "datbase connected";
+		//echo "database connected";
 
 	} else {
 
-		echo die("MySQL ERROR. " .mysqli_error($db));
+		echo die("MySQL Error. " .mysqli_error($db));
 
 	}
 	
