@@ -16,6 +16,25 @@
 	<!-- Bootstrap Style CSS Sheet -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
+	<!-- Bootstrap dataTables CDN -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+
+	<!-- Own Style Sheet -->
+	<style type="text/css">
+		
+		.container-fluid{
+			padding: 0 0 0 0 ;
+		}
+		.navbar-brand{
+			padding-left: 20px;
+		}
+
+		.header{
+			padding-top: 20px;
+		}
+
+	</style>
+
 </head>
 	<body>
 
