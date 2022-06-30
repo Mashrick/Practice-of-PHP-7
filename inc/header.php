@@ -1,4 +1,10 @@
-<?php include "inc/db.php";?>
+<?php 
+
+ob_start();
+include "inc/db.php";
+
+
+?>
 
 
 
@@ -32,6 +38,8 @@
 		.header{
 			padding-top: 20px;
 		}
+
+		
 
 	</style>
 
