@@ -1,7 +1,5 @@
 
 
-
-
 		
 		<!-- javaScript -->
 		<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -27,5 +25,13 @@
 
 		
 
+
+		<?php 
+		
+
+		ob_end_flush(); 
+
+
+		?>
 	</body>
 </html>
