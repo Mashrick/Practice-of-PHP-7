@@ -86,10 +86,10 @@
 
 							if (isset($_POST['updateBtn'])) {
 
-								$fullName		=$_POST['fullName'];
-								$phone			=$_POST['phone'];
-								$emailAddress	=$_POST['emailAddress'];
-								$address 		=$_POST['address'];
+									$fullName		=	mysqli_real_escape_string($db, $_POST['fullName']);
+									$phone			=	mysqli_real_escape_string($db, $_POST['phone']);
+									$emailAddress	=	mysqli_real_escape_string($db, $_POST['emailAddress']);
+									$address		=	mysqli_real_escape_string($db, $_POST['address']);
 
 								$sql = "UPDATE studentdata SET fullName='$fullName', phone='$phone', emailAddress='$emailAddress', address='$address' WHERE id='$updateId'";														
 
