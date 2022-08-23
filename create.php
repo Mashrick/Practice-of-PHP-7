@@ -74,10 +74,13 @@
 
 								if (isset($_POST['stdAddBtn'])) {
 									
-									$fullName		=	$_POST['fullName'];
-									$phone			=	$_POST['phone'];
-									$emailAddress	=	$_POST['emailAddress'];
-									$address		=	$_POST['address'];
+									$fullName		=	mysqli_real_escape_string($db, $_POST['fullName']);
+									$phone			=	mysqli_real_escape_string($db, $_POST['phone']);
+									$emailAddress	=	mysqli_real_escape_string($db, $_POST['emailAddress']);
+									$address		=	mysqli_real_escape_string($db, $_POST['address']);
+
+									
+
 									
 
 									$sql			=	"INSERT INTO studentdata(fullName, phone, emailAddress, address, joinDate) VALUES('$fullName', '$phone', '$emailAddress', '$address', now() )";
@@ -104,6 +107,10 @@
 			</div>
 		</div>
 	</div>
+
+	
+
+
 
 
 <?php include "inc/footer.php";?>
