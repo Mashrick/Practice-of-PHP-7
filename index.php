@@ -65,13 +65,45 @@
 							      	<div class="btn-group">
 
 							      		<a href="update.php?id=<?php echo $id; ?>" class="btn btn-sm btn-outline-success">Update</a>
-							      		<a href="" class="btn btn-sm btn-outline-danger">Delete</a>
+							      		
+							      		<a href="" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteid<?php echo $id; ?>">Delete</a>
 
-							      	</div>
-
-							      	
+							      	</div>							      	
 
 							      </td>
+
+							      <!-- Modal Start-->
+
+									<div class="modal fade" id="deleteid<?php echo $id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel">Do you want to delete this User?</h5>
+
+									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+									      </div>
+
+									      <div class="modal-body">
+
+									      	<div class="text-center">
+
+									      		<a href="index.php?id=<?php echo $id; ?>" class="btn btn-outline-danger btn-md">Confirm</a>
+
+									      		<button type="button" class="btn btn-outline-primary btn-md" data-bs-dismiss="modal">Cancel</button>
+									      		
+									      	</div>
+									        
+									      </div>
+
+									      
+									    </div>
+									  </div>
+									</div>
+
+									<!-- Modal End-->
+							    
+
 						   		</tr>
 
 						  	<?php				
@@ -86,14 +118,42 @@
 
 						    
 						  </tbody>
-						</table>
-
-						
+						</table>						
 						
 					</div>
 				</div>
 			</div>
 		</div>
+
+
+		<!-- Delete User -->
+
+		<?php
+
+			if (isset($_GET['id'])) {
+
+				$deleteId	=	$_GET['id'];
+
+				$Sql 		= 	"DELETE FROM studentdata WHERE id='$deleteId'";
+
+				$deleteUser = 	mysqli_query($db, $Sql );
+
+				if ($deleteUser) {
+
+					header("Location: index.php");
+
+				} else {
+
+					die("MySQL Error. " . mysqli_error($db) );
+
+				}
+			}
+
+
+
+		?>
+
+
 
 <?php include "inc/footer.php";?>
 
